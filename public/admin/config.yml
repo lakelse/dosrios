@@ -49,6 +49,19 @@ collections:
           - { label: Description, name: description, widget: string }
           - { label: Body, name: body, widget: markdown }
 
+      - name: practica
+        label: Practica
+        file: src/content/pages/practica.md
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Description, name: description, widget: string }
+          - { label: Schedule, name: schedule, widget: string, hint: "e.g. Every Monday" }
+          - { label: Time, name: time, widget: string, hint: "e.g. 6:30 PM - 9:00 PM" }
+          - { label: Location, name: location, widget: text }
+          - { label: Cost, name: cost, widget: string }
+          - { label: Note, name: note, widget: string, required: false, hint: "Optional warning e.g. no practica long weekend" }
+          - { label: Body, name: body, widget: markdown }
+
   - name: schedule
     label: Schedule
     folder: src/content/schedule

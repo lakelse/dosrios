@@ -1,0 +1,138 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageBanner from '../components/PageBanner.astro';
+import { getEntry, render } from 'astro:content';
+
+const entry = await getEntry('pages', 'practica');
+const { title, description, schedule, time, location, cost, note } = entry.data;
+const { Content } = await render(entry);
+---
+
+<Layout title={title} description={description}>
+  <PageBanner title={title} subtitle="Open practice - all levels welcome." />
+
+  <div class="container page-content">
+    <div class="practica-layout">
+      <aside class="quick-facts">
+        <h2>Details</h2>
+        <dl>
+          {schedule && (
+            <div class="fact">
+              <dt>When</dt>
+              <dd class="fact-schedule">{schedule}</dd>
+            </div>
+          )}
+          {note && (
+            <div class="fact">
+              <dt></dt>
+              <dd class="fact-note">{note}</dd>
+            </div>
+          )}
+          {time && (
+            <div class="fact">
+              <dt>Time</dt>
+              <dd>{time}</dd>
+            </div>
+          )}
+          {location && (
+            <div class="fact">
+              <dt>Location</dt>
+              <dd class="fact-location">{location}</dd>
+            </div>
+          )}
+          {cost && (
+            <div class="fact">
+              <dt>Cost</dt>
+              <dd>{cost}</dd>
+            </div>
+          )}
+        </dl>
+      </aside>
+
+      <div class="prose">
+        <Content />
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+.page-content {
+  padding-top: 3rem;
+  padding-bottom: 5rem;
+}
+
+.practica-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.quick-facts {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1.5rem;
+  position: sticky;
+  top: 5rem;
+}
+
+.quick-facts h2 {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 500;
+  margin-bottom: 1.25rem;
+}
+
+dl {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.fact dt {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  font-family: 'Inter', system-ui, sans-serif;
+  margin-bottom: 0.2rem;
+}
+
+.fact dd {
+  font-size: 0.9rem;
+  color: var(--text);
+  white-space: pre-line;
+}
+
+.fact-schedule {
+  color: var(--gold);
+  font-weight: 500;
+}
+
+.fact-note {
+  color: #e8a020;
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+.fact-location {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 768px) {
+  .practica-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .quick-facts {
+    position: static;
+  }
+}
+</style>
