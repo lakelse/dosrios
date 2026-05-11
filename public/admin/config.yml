@@ -2,8 +2,8 @@ backend:
   name: github
   repo: lakelse/dosrios
   branch: master
-  base_url: https://dosrios.ca
-  auth_endpoint: api/auth
+  base_url: https://polished-cherry-3356.jon-e12.workers.dev
+  auth_endpoint: auth
 
 media_folder: public/uploads
 public_folder: /uploads
