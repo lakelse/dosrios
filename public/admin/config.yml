@@ -38,6 +38,17 @@ collections:
       - { label: Featured, name: featured, widget: boolean, default: false }
       - { label: Body, name: body, widget: markdown }
 
+  - name: pages
+    label: Pages
+    files:
+      - name: about
+        label: About
+        file: src/content/pages/about.md
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Description, name: description, widget: string }
+          - { label: Body, name: body, widget: markdown }
+
   - name: schedule
     label: Schedule
     folder: src/content/schedule

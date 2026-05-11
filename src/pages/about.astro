@@ -1,54 +1,19 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import PageBanner from '../components/PageBanner.astro';
+import { getEntry, render } from 'astro:content';
+
+const entry = await getEntry('pages', 'about');
+const { title, description } = entry.data;
+const { Content } = await render(entry);
 ---
 
-<Layout title="About" description="About Dos Ríos - Argentine Tango and Nuevo in Winnipeg.">
-  <PageBanner title="About" />
+<Layout title={title} description={description}>
+  <PageBanner title={title} />
 
   <div class="container page-content">
     <div class="prose">
-      <h2>Who We Are</h2>
-      <p>
-        Dos Ríos is a community of Argentine tango dancers based in Winnipeg, Manitoba.
-        We embrace both traditional and nuevo styles, and organize milongas, practicas,
-        and classes to bring tango to the city - welcoming dancers of all levels.
-      </p>
-
-      <h2>The Styles</h2>
-      <p>
-        <strong>Traditional</strong> - danced to the classic orchestras of the Golden Age:
-        D'Arienzo, Pugliese, Di Sarli, Troilo. Close embrace, structured ronda, tandas and cortinas.
-      </p>
-      <p>
-        <strong>Nuevo</strong> - an open, exploratory approach to the dance that draws on
-        the same vocabulary but invites more improvisation, open embrace, and contemporary music
-        including Piazzolla and electronic tango.
-      </p>
-      <p>
-        Many of our events are mixed - check the style tag on each event listing to know what to expect.
-      </p>
-
-      <h2>What We Do</h2>
-      <p>
-        <strong>Milongas</strong> - social tango dances. Traditional milongas follow ronda
-        etiquette with tandas and cortinas; nuevo milongas are more open in format.
-      </p>
-      <p>
-        <strong>Practicas</strong> - open practice sessions where you can work on technique,
-        ask questions, and dance informally across both styles.
-      </p>
-      <p>
-        <strong>Classes</strong> - instruction for beginners through to experienced dancers,
-        covering technique, musicality, and connection in both traditional and nuevo.
-      </p>
-
-      <h2>Get Involved</h2>
-      <p>
-        The best way to stay connected is to join our
-        <a href="/discord" target="_blank" rel="noopener noreferrer">Discord server</a>
-        where we post event announcements, share music, and keep the conversation going between dances.
-      </p>
+      <Content />
     </div>
   </div>
 </Layout>
