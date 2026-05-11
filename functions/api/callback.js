@@ -36,17 +36,14 @@ function postMessageResponse(status, content) {
   const html = `<!DOCTYPE html>
 <html>
 <body>
-<pre id="status">Processing...</pre>
 <script>
 (function () {
   const msg = ${JSON.stringify(message)};
-  document.getElementById('status').textContent = msg;
-  if (!window.opener) {
-    document.getElementById('status').textContent += '\\n\\nERROR: window.opener is null';
-    return;
-  }
-  window.opener.postMessage(msg, '*');
-  setTimeout(function() { window.close(); }, 3000);
+  // BroadcastChannel works despite GitHub's COOP headers severing window.opener
+  const bc = new BroadcastChannel('decap-oauth');
+  bc.postMessage(msg);
+  bc.close();
+  window.close();
 })();
 </script>
 </body>
