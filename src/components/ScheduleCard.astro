@@ -6,7 +6,7 @@ interface Props {
 }
 
 const { entry } = Astro.props;
-const { title, schedule, time, location, description, type, style } = entry.data;
+const { title, schedule, time, location, description, type, style, note } = entry.data;
 ---
 
 <article class="schedule-card">
@@ -17,6 +17,7 @@ const { title, schedule, time, location, description, type, style } = entry.data
   <h3><a href={`/schedule/${entry.id}`}>{title}</a></h3>
   <div class="card-meta">
     <span class="card-schedule">{schedule}</span>
+    {note && <span class="card-note">{note}</span>}
     <span>{time}</span>
     <span>{location}</span>
   </div>
@@ -72,6 +73,12 @@ const { title, schedule, time, location, description, type, style } = entry.data
 .card-schedule {
   color: var(--gold);
   font-weight: 500;
+}
+
+.card-note {
+  color: #e8a020;
+  font-size: 0.8rem;
+  font-style: italic;
 }
 
 .card-description {

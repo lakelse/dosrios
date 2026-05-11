@@ -36,6 +36,7 @@ const schedule = defineCollection({
     description: z.string(),
     type: z.enum(['milonga', 'practica', 'class', 'workshop']),
     style: z.enum(['traditional', 'nuevo', 'mixed']).optional(),
+    note: z.string().optional(),
   }),
 });
 

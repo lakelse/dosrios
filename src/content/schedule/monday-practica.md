@@ -1,6 +1,7 @@
 ---
 title: Monday Practica
 schedule: Every Monday
+note: No practica Victoria Day long weekend
 time: 6:30 PM - 9:00 PM
 location: |
   RA Steen Community Centre
@@ -17,4 +18,4 @@ The format is informal - work through things with a partner, ask questions, or j
 **May Special: Technique Class included**
 Throughout May, a technique class runs from 8:00 to 9:00 PM as part of the practica. No registration needed.
 
-**No practica May 18** — Victoria Day holiday. The RA Steen Community Centre will be closed.
+**No practica May 18** — Victoria Day long weekend. The RA Steen Community Centre will be closed.
