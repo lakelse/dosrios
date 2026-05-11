@@ -3,8 +3,10 @@ title: Practica
 description: Monday open practica for Argentine tango in Winnipeg - all levels welcome.
 schedule: Every Monday
 time: 6:30 PM - 9:00 PM
-location: "RA Steen Community Centre\n980 Palmerston Ave"
-cost: Free
+location: |-
+  RA Steen Community Centre
+  980 Palmerston Ave
+cost: $10 drop-in, $15 to include techniques class
 note: No practica Victoria Day long weekend
 ---
 
