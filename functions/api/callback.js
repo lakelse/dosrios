@@ -36,10 +36,16 @@ function postMessageResponse(status, content) {
   const html = `<!DOCTYPE html>
 <html>
 <body>
+<p id="status">Processing...</p>
 <script>
 (function () {
   const msg = ${JSON.stringify(message)};
+  if (!window.opener) {
+    document.getElementById('status').textContent = 'Error: window.opener is null (COOP header issue)';
+    return;
+  }
   window.opener.postMessage(msg, '*');
+  document.getElementById('status').textContent = 'Message sent — closing...';
   window.close();
 })();
 </script>
