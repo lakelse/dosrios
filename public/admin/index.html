@@ -9,11 +9,21 @@
   <script>
     const bc = new BroadcastChannel('decap-oauth');
     bc.onmessage = function(e) {
-      bc.close();
-      window.dispatchEvent(new MessageEvent('message', {
-        data: e.data,
-        origin: window.location.origin,
-      }));
+      if (e.data === 'authorizing:github') {
+        // Forward handshake to Decap so it registers its auth listener
+        window.dispatchEvent(new MessageEvent('message', {
+          data: e.data,
+          origin: window.location.origin,
+        }));
+        // Ack back to popup (replaces the severed authWindow.postMessage)
+        bc.postMessage('authorizing:github');
+      } else if (e.data.startsWith('authorization:github:')) {
+        // Forward token to Decap
+        window.dispatchEvent(new MessageEvent('message', {
+          data: e.data,
+          origin: window.location.origin,
+        }));
+      }
     };
   </script>
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>

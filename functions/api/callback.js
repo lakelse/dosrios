@@ -39,11 +39,17 @@ function postMessageResponse(status, content) {
 <script>
 (function () {
   const msg = ${JSON.stringify(message)};
-  // BroadcastChannel works despite GitHub's COOP headers severing window.opener
   const bc = new BroadcastChannel('decap-oauth');
-  bc.postMessage(msg);
-  bc.close();
-  window.close();
+  // Step 1: send handshake so Decap registers its auth listener
+  bc.postMessage('authorizing:github');
+  // Step 2: wait for admin page to ack, then send the token
+  bc.onmessage = function(e) {
+    if (e.data === 'authorizing:github') {
+      bc.postMessage(msg);
+      bc.close();
+      window.close();
+    }
+  };
 })();
 </script>
 </body>
