@@ -1,6 +1,6 @@
 ---
 title: Welcome to Dos Ríos
-date: 2026-05-11
+date: 2026-05-10
 author: Dos Ríos
 description: Introducing our tango community in Winnipeg — what we're building and how to get involved.
 tags: [community, winnipeg]
