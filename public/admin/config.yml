@@ -1,0 +1,55 @@
+backend:
+  name: github
+  repo: lakelse/dosrios
+  branch: master
+  base_url: https://dosrios.ca
+  auth_endpoint: api/auth
+
+media_folder: public/uploads
+public_folder: /uploads
+
+collections:
+  - name: blog
+    label: Blog
+    folder: src/content/blog
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Date, name: date, widget: datetime, format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+      - { label: Author, name: author, widget: string, default: "Dos Ríos" }
+      - { label: Description, name: description, widget: string }
+      - { label: Tags, name: tags, widget: list, default: [] }
+      - { label: Body, name: body, widget: markdown }
+
+  - name: events
+    label: Events
+    folder: src/content/events
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Date, name: date, widget: datetime, format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+      - { label: Time, name: time, widget: string, hint: "e.g. 8:00 PM - 11:00 PM" }
+      - { label: Location, name: location, widget: text }
+      - { label: Description, name: description, widget: string }
+      - { label: Type, name: type, widget: select, options: [milonga, practica, class, workshop] }
+      - { label: Style, name: style, widget: select, options: [traditional, nuevo, mixed], required: false }
+      - { label: Featured, name: featured, widget: boolean, default: false }
+      - { label: Body, name: body, widget: markdown }
+
+  - name: schedule
+    label: Schedule
+    folder: src/content/schedule
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Schedule, name: schedule, widget: string, hint: "e.g. Every Monday" }
+      - { label: Note, name: note, widget: string, required: false, hint: "Optional warning shown on the card" }
+      - { label: Time, name: time, widget: string, hint: "e.g. 6:30 PM - 9:00 PM" }
+      - { label: Location, name: location, widget: text }
+      - { label: Description, name: description, widget: string }
+      - { label: Type, name: type, widget: select, options: [milonga, practica, class, workshop] }
+      - { label: Style, name: style, widget: select, options: [traditional, nuevo, mixed], required: false }
+      - { label: Body, name: body, widget: markdown }
