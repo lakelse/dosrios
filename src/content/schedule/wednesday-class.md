@@ -1,7 +1,7 @@
 ---
 title: Wednesday Classes
 schedule: Every Wednesday
-note: Spring session: April 15 to June 17
+note: "Spring session: April 15 to June 17"
 time: 7:45 PM - 9:15 PM
 location: |
   The Parish Church of Saint Luke
