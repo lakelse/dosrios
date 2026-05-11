@@ -16,6 +16,11 @@ const currentPath = Astro.url.pathname;
       <span class="logo-main">Dos Ríos</span>
       <span class="logo-sub">Argentine Tango · Winnipeg</span>
     </a>
+    <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
     <nav>
       {navLinks.map(link => (
         <a
@@ -25,15 +30,34 @@ const currentPath = Astro.url.pathname;
           {link.label}
         </a>
       ))}
-      <a
-        href="/discord"
-        class="discord-btn"
-      >
-        Discord
-      </a>
+      <a href="/discord" class="discord-btn">Discord</a>
     </nav>
   </div>
 </header>
+
+<script>
+  const hamburger = document.querySelector('.hamburger') as HTMLButtonElement;
+  const header = document.querySelector('header') as HTMLElement;
+  const nav = document.querySelector('header nav') as HTMLElement;
+
+  function setNavTop() {
+    nav.style.top = `${header.offsetHeight}px`;
+  }
+
+  hamburger.addEventListener('click', () => {
+    const open = hamburger.getAttribute('aria-expanded') === 'true';
+    hamburger.setAttribute('aria-expanded', String(!open));
+    setNavTop();
+    nav.classList.toggle('open');
+  });
+
+  nav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.setAttribute('aria-expanded', 'false');
+      nav.classList.remove('open');
+    });
+  });
+</script>
 
 <style>
 header {
@@ -109,9 +133,79 @@ nav {
   background: #4752c4;
 }
 
-@media (max-width: 640px) {
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+}
+
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.hamburger[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+@media (max-width: 768px) {
   .logo-sub { display: none; }
-  nav { gap: 1rem; }
-  .nav-link { font-size: 0.8rem; }
+
+  .hamburger {
+    display: flex;
+  }
+
+  nav {
+    display: none;
+    position: fixed;
+    top: var(--header-height, 57px);
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    background: rgba(13, 13, 13, 0.99);
+    border-bottom: 1px solid var(--border);
+    padding: 0.5rem 0;
+    z-index: 99;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+  }
+
+  nav.open {
+    display: flex;
+  }
+
+  .nav-link {
+    width: 100%;
+    padding: 0.875rem 1.5rem;
+    font-size: 1rem;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-muted);
+  }
+
+  .nav-link.active {
+    color: var(--text);
+  }
+
+  .discord-btn {
+    margin: 0.875rem 1.5rem;
+  }
 }
 </style>
