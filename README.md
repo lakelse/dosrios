@@ -4,6 +4,10 @@ Website for Dos Ríos Argentine Tango — a tango community in Winnipeg, Manitob
 
 Built with [Astro](https://astro.build) and deployed on [Cloudflare Pages](https://pages.cloudflare.com).
 
+## TODO
+
+- [ ] Investigate [Decap CMS](https://decapcms.org) for content management
+
 ## Development
 
 Requires Docker.
