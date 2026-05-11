@@ -1,0 +1,96 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  entry: CollectionEntry<'schedule'>;
+}
+
+const { entry } = Astro.props;
+const { title, schedule, time, location, description, type, style } = entry.data;
+---
+
+<article class="schedule-card">
+  <div class="card-header">
+    <span class={`badge badge-${type}`}>{type}</span>
+    {style && <span class={`badge badge-style-${style}`}>{style}</span>}
+  </div>
+  <h3><a href={`/schedule/${entry.id}`}>{title}</a></h3>
+  <div class="card-meta">
+    <span class="card-schedule">{schedule}</span>
+    <span>{time}</span>
+    <span>{location}</span>
+  </div>
+  <p class="card-description">{description}</p>
+  <a href={`/schedule/${entry.id}`} class="card-link">Details →</a>
+</article>
+
+<style>
+.schedule-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1.5rem;
+  transition: border-color 0.2s;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  position: relative;
+}
+
+.schedule-card:hover {
+  border-color: var(--gold);
+}
+
+.card-header {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.schedule-card h3 {
+  font-size: 1.2rem;
+}
+
+.schedule-card h3 a {
+  color: var(--text);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.schedule-card h3 a:hover {
+  color: var(--gold);
+}
+
+.card-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  white-space: pre-line;
+}
+
+.card-schedule {
+  color: var(--gold);
+  font-weight: 500;
+}
+
+.card-description {
+  font-size: 0.9rem;
+  color: #c0b8a8;
+  line-height: 1.5;
+  flex: 1;
+}
+
+.card-link {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  transition: color 0.2s;
+  position: absolute;
+  inset: 0;
+  text-indent: -9999px;
+}
+
+.schedule-card:hover .card-link {
+  color: var(--gold);
+}
+</style>

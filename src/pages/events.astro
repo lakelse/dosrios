@@ -1,0 +1,90 @@
+---
+import Layout from '../layouts/Layout.astro';
+import EventCard from '../components/EventCard.astro';
+import ScheduleCard from '../components/ScheduleCard.astro';
+import PageBanner from '../components/PageBanner.astro';
+import { getCollection } from 'astro:content';
+
+const allEvents = await getCollection('events');
+const regularSchedule = await getCollection('schedule');
+const now = new Date();
+
+const upcoming = allEvents
+  .filter(e => new Date(e.data.date) >= now)
+  .sort((a, b) => new Date(a.data.date).getTime() - new Date(b.data.date).getTime());
+
+const past = allEvents
+  .filter(e => new Date(e.data.date) < now)
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+---
+
+<Layout title="Events" description="Upcoming milongas, practicas, and classes in Winnipeg.">
+  <PageBanner title="Events" subtitle="Milongas, practicas, and classes in Winnipeg." />
+
+  <div class="container page-content">
+    <section>
+      <h2>Regular Schedule</h2>
+      <div class="events-grid">
+        {regularSchedule.map(entry => <ScheduleCard entry={entry} />)}
+      </div>
+    </section>
+
+    {upcoming.length > 0 ? (
+      <section>
+        <h2>Upcoming</h2>
+        <div class="events-grid">
+          {upcoming.map(event => <EventCard event={event} />)}
+        </div>
+      </section>
+    ) : (
+      <section>
+        <h2>Upcoming</h2>
+        <p class="empty">No upcoming special events at the moment. Check Discord for announcements.</p>
+      </section>
+    )}
+
+    {past.length > 0 && (
+      <section class="past-section">
+        <h2>Past Events</h2>
+        <div class="events-grid">
+          {past.map(event => <EventCard event={event} />)}
+        </div>
+      </section>
+    )}
+  </div>
+</Layout>
+
+<style>
+.page-content {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.page-content h2 {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1.5rem;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 500;
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.25rem;
+}
+
+.empty {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.past-section {
+  opacity: 0.6;
+}
+</style>

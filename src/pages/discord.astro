@@ -1,0 +1,39 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Discord" description="Dos Ríos Tango Discord — coming soon.">
+  <div class="container page-content">
+    <div class="coming-soon">
+      <h1>Coming Soon</h1>
+      <p>Our Discord server is on its way. Check back soon.</p>
+      <a href="/" class="btn btn-outline">Back to Home</a>
+    </div>
+  </div>
+</Layout>
+
+<style>
+.page-content {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+.coming-soon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+}
+
+.coming-soon h1 {
+  font-size: 3rem;
+  color: var(--gold);
+}
+
+.coming-soon p {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+</style>

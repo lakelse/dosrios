@@ -1,0 +1,103 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  event: CollectionEntry<'events'>;
+}
+
+const { event } = Astro.props;
+const { title, date, time, location, description, type, style } = event.data;
+
+const formattedDate = date.toLocaleDateString('en-CA', {
+  weekday: 'long',
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<article class="event-card">
+  <div class="event-header">
+    <span class={`badge badge-${type}`}>{type}</span>
+    {style && <span class={`badge badge-style-${style}`}>{style}</span>}
+  </div>
+  <h3><a href={`/events/${event.id}`}>{title}</a></h3>
+  <div class="event-meta">
+    <span class="event-date">{formattedDate}</span>
+    <span class="event-time">{time}</span>
+    <span class="event-location">{location}</span>
+  </div>
+  <p class="event-description">{description}</p>
+  <a href={`/events/${event.id}`} class="event-link">Details →</a>
+</article>
+
+<style>
+.event-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1.5rem;
+  transition: border-color 0.2s;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  position: relative;
+}
+
+.event-card:hover {
+  border-color: var(--gold);
+}
+
+.event-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.event-card h3 {
+  font-size: 1.2rem;
+}
+
+.event-card h3 a {
+  color: var(--text);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.event-card h3 a:hover {
+  color: var(--gold);
+}
+
+.event-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.event-date {
+  color: var(--gold);
+  font-weight: 500;
+}
+
+.event-description {
+  font-size: 0.9rem;
+  color: #c0b8a8;
+  line-height: 1.5;
+  flex: 1;
+}
+
+.event-link {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  transition: color 0.2s;
+  position: absolute;
+  inset: 0;
+  text-indent: -9999px;
+}
+
+.event-card:hover .event-link {
+  color: var(--gold);
+}
+</style>

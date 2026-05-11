@@ -1,0 +1,117 @@
+---
+const navLinks = [
+  { href: '/',        label: 'Home' },
+  { href: '/events',  label: 'Events' },
+  { href: '/blog',    label: 'Blog' },
+  { href: '/about',   label: 'About' },
+  { href: '/contact', label: 'Contact' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header>
+  <div class="container">
+    <a href="/" class="logo">
+      <span class="logo-main">Dos Ríos</span>
+      <span class="logo-sub">Argentine Tango · Winnipeg</span>
+    </a>
+    <nav>
+      {navLinks.map(link => (
+        <a
+          href={link.href}
+          class:list={['nav-link', { active: currentPath === link.href }]}
+        >
+          {link.label}
+        </a>
+      ))}
+      <a
+        href="/discord"
+        class="discord-btn"
+      >
+        Discord
+      </a>
+    </nav>
+  </div>
+</header>
+
+<style>
+header {
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  background: rgba(13, 13, 13, 0.96);
+  backdrop-filter: blur(8px);
+  z-index: 100;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  line-height: 1;
+  gap: 0.2rem;
+}
+
+.logo-main {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.logo-sub {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition: color 0.2s;
+  letter-spacing: 0.02em;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--text);
+}
+
+.discord-btn {
+  background: #5865F2;
+  color: white !important;
+  padding: 0.4rem 1rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.discord-btn:hover {
+  background: #4752c4;
+}
+
+@media (max-width: 640px) {
+  .logo-sub { display: none; }
+  nav { gap: 1rem; }
+  .nav-link { font-size: 0.8rem; }
+}
+</style>

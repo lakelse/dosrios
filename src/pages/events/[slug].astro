@@ -1,0 +1,97 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const events = await getCollection('events');
+  return events.map(event => ({
+    params: { slug: event.id },
+    props: { event },
+  }));
+}
+
+const { event } = Astro.props;
+const { title, date, time, location, description, type, style } = event.data;
+const { Content } = await render(event);
+
+const formattedDate = date.toLocaleDateString('en-CA', {
+  weekday: 'long',
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<Layout title={title} description={description}>
+  <div class="container page-content">
+    <a href="/events" class="back-link">← Back to Events</a>
+    <article>
+      <header class="event-header">
+        <div class="badges">
+          <span class={`badge badge-${type}`}>{type}</span>
+          {style && <span class={`badge badge-style-${style}`}>{style}</span>}
+        </div>
+        <h1>{title}</h1>
+        <div class="event-meta">
+          <p class="event-date">{formattedDate}</p>
+          <p>{time}</p>
+          <p>{location}</p>
+        </div>
+      </header>
+      <div class="prose">
+        <Content />
+      </div>
+    </article>
+  </div>
+</Layout>
+
+<style>
+.page-content {
+  padding-top: 3rem;
+  padding-bottom: 5rem;
+}
+
+.back-link {
+  display: inline-block;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  margin-bottom: 2rem;
+  transition: color 0.2s;
+}
+
+.back-link:hover {
+  color: var(--gold);
+}
+
+.event-header {
+  margin-bottom: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.badges {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.event-header h1 {
+  font-size: 2.5rem;
+  color: var(--text);
+}
+
+.event-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  border-left: 2px solid var(--accent);
+  padding-left: 1rem;
+}
+
+.event-date {
+  color: var(--gold) !important;
+  font-weight: 500;
+}
+</style>
