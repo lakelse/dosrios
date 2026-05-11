@@ -38,6 +38,7 @@ const latestPost = blogPosts.sort(
         </a>
       </div>
     </div>
+    <p class="photo-credit">Photo by <a href="https://unsplash.com/photos/KFIjzXYg1RM" target="_blank" rel="noopener noreferrer">Jeremy Bishop</a> on <a href="https://unsplash.com/" target="_blank" rel="noopener noreferrer">Unsplash</a></p>
   </section>
 
   <section class="section">
@@ -94,6 +95,25 @@ const latestPost = blogPosts.sort(
   border-bottom: 1px solid var(--border);
   position: relative;
   overflow: hidden;
+}
+
+.photo-credit {
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.75rem;
+  z-index: 2;
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.03em;
+}
+
+.photo-credit a {
+  color: rgba(255, 255, 255, 0.4);
+  text-decoration: underline;
+}
+
+.photo-credit a:hover {
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .hero::after {
