@@ -2,11 +2,14 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Discord" description="Dos Ríos Tango Discord - coming soon.">
+<Layout title="Discord" description="Join the Dos Ríos community on Discord.">
   <div class="container page-content">
     <div class="coming-soon">
-      <h1>Coming Soon</h1>
-      <p>Our Discord server is on its way. Check back soon.</p>
+      <h1>Join Us on Discord</h1>
+      <p class="what-is">
+        Discord is a free app for group chat and community — think of it as a dedicated space for Dos Ríos, organized into channels by topic. It's where we post event announcements, cancellations, and schedule updates; share music and playlists; and keep the conversation going between dances. You can use it in a browser or download the app for your phone or computer.
+      </p>
+      <p>Our server is on its way. Check back soon.</p>
       <a href="/" class="btn btn-outline">Back to Home</a>
     </div>
   </div>
@@ -35,5 +38,11 @@ import Layout from '../layouts/Layout.astro';
   color: var(--text-muted);
   font-size: 1.1rem;
   margin-bottom: 0.5rem;
+}
+
+.what-is {
+  max-width: 560px;
+  line-height: 1.7;
+  font-size: 1rem !important;
 }
 </style>
