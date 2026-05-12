@@ -35,4 +35,4 @@ All levels. Beginners are especially welcome - the Monday practica is a good pla
 
 ## Stay Connected
 
-Join our [Discord server](/discord) for announcements, cancellations, and to connect with other dancers between practicas.
+Join our [Discord server](/discord) for announcements and cancellations. We also have a dedicated [#practica channel](https://discord.com/channels/1503204965844389898/1503747005610987590) where you can talk about what you're working on, ask questions, and connect with other dancers between sessions.
