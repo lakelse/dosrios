@@ -6,6 +6,7 @@ time: 6:30 PM - 9:00 PM
 location: |-
   RA Steen Community Centre
   980 Palmerston Ave
+  <a link="https://www.robertasteencc.ca/">https://www.robertasteencc.ca/</a>
 cost: $10 drop-in, $15 to include techniques class
 note: No practica Victoria Day long weekend
 ---
