@@ -16,6 +16,6 @@ We're keeping things simple to start. Practicas where you can work through thing
 
 ## Join the Discord
 
-The Discord server is where the community lives between dances. Event announcements, music recommendations, questions, conversation. If you're curious about tango in Winnipeg, that's the place to start.
+The [Discord server](/discord) is where the community lives between dances. Event announcements, music recommendations, questions, conversation. If you're curious about tango in Winnipeg, that's the place to start.
 
 See you on the floor.
