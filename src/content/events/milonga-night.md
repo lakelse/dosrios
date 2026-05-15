@@ -8,7 +8,7 @@ type: milonga
 style: mixed
 featured: true
 ---
-
-
 * 2.5 hours Traditional, 1 hour Nuevo
 * $12 cash/e-transfer
+
+<img src="/public/uploads/4fb4616a-005e-4870-a005-fff47109c651.png">
