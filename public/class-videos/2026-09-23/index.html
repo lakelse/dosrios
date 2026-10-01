@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<!-- Generated: 2026-10-01 14:54:55 UTC -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tango class · Sep 23, 2026</title>
+  <style>
+    :root { --bg: #0f0f0f; --surface: #1a1a1a; --border: #2a2a2a; --text: #e8e8e8; --muted: #888; --accent: #ff4444; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); max-width: 960px; margin: 0 auto; padding: 2rem 1rem; }
+    nav { margin-bottom: 1.5rem; }
+    nav a { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); text-decoration: none; }
+    nav a:hover { color: var(--text); }
+    h1 { font-size: 1.5rem; margin-bottom: 0.25rem; }
+    .meta { color: var(--muted); margin-bottom: 1.25rem; }
+    .player video { width: 100%; max-height: 80vh; background: #000; border-radius: 8px; display: block; }
+    .now { margin: 0.6rem 0 0; color: var(--muted); font-size: 0.9rem; }
+    .now a { color: var(--muted); }
+    h2 { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin: 2rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
+    ul { list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr)); gap: 1rem; }
+    li a { display: flex; flex-direction: column; gap: 0.6rem; text-decoration: none; color: inherit; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; transition: border-color 0.15s; }
+    li a:hover, li a[aria-current="true"] { border-color: var(--accent); }
+    li img { width: 100%; display: block; aspect-ratio: 16/9; object-fit: cover; }
+    li span { font-size: 0.85rem; padding: 0 0.75rem 0.75rem; color: var(--muted); }
+    @media (max-width: 700px) {
+      /* Just the thumbnails. The player stays rendered (a hidden one cannot go full screen on some phones), only invisible. */
+      .player { position: absolute; width: 1px; height: 1px; overflow: hidden; opacity: 0; pointer-events: none; }
+      ul { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+      h2 { margin-top: 1.25rem; }
+    }
+    footer { margin-top: 4rem; padding-top: 1rem; border-top: 1px solid var(--border); font-size: 0.75rem; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <nav><a href="/class-videos/">&larr; All classes</a></nav>
+  <h1>Sep 23, 2026</h1>
+  <p class="meta">Fall 2026 · class 4 of 10</p>
+  <div class="player">
+    <video id="player" controls playsinline preload="metadata" poster="https://videos.dosrios.ca/classes/2026-09-23-7714f2ca/poster-1.jpg" src="https://videos.dosrios.ca/classes/2026-09-23-7714f2ca/clip-1.mp4"></video>
+    <p class="now"><span id="now">Clip 1</span> &middot; <a id="download" href="https://videos.dosrios.ca/classes/2026-09-23-7714f2ca/clip-1.mp4" download>Download</a></p>
+  </div>
+  <h2>This week's videos</h2>
+  <ul id="clips">
+      <li>
+        <a href="https://videos.dosrios.ca/classes/2026-09-23-7714f2ca/clip-1.mp4" data-video="https://videos.dosrios.ca/classes/2026-09-23-7714f2ca/clip-1.mp4" data-poster="https://videos.dosrios.ca/classes/2026-09-23-7714f2ca/poster-1.jpg" data-title="Clip 1" aria-current="true">
+          <img src="https://videos.dosrios.ca/classes/2026-09-23-7714f2ca/thumb-1.jpg" alt="" loading="lazy">
+          <span>1. Clip 1 · 3:01</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://videos.dosrios.ca/classes/2026-09-23-7714f2ca/clip-2.mp4" data-video="https://videos.dosrios.ca/classes/2026-09-23-7714f2ca/clip-2.mp4" data-poster="https://videos.dosrios.ca/classes/2026-09-23-7714f2ca/poster-2.jpg" data-title="Clip 2">
+          <img src="https://videos.dosrios.ca/classes/2026-09-23-7714f2ca/thumb-2.jpg" alt="" loading="lazy">
+          <span>2. Clip 2 · 2:08</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://videos.dosrios.ca/classes/2026-09-23-7714f2ca/clip-3.mp4" data-video="https://videos.dosrios.ca/classes/2026-09-23-7714f2ca/clip-3.mp4" data-poster="https://videos.dosrios.ca/classes/2026-09-23-7714f2ca/poster-3.jpg" data-title="Clip 3">
+          <img src="https://videos.dosrios.ca/classes/2026-09-23-7714f2ca/thumb-3.jpg" alt="" loading="lazy">
+          <span>3. Clip 3 · 1:33</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://videos.dosrios.ca/classes/2026-09-23-7714f2ca/clip-4.mp4" data-video="https://videos.dosrios.ca/classes/2026-09-23-7714f2ca/clip-4.mp4" data-poster="https://videos.dosrios.ca/classes/2026-09-23-7714f2ca/poster-4.jpg" data-title="Clip 4">
+          <img src="https://videos.dosrios.ca/classes/2026-09-23-7714f2ca/thumb-4.jpg" alt="" loading="lazy">
+          <span>4. Clip 4 · 0:54</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://videos.dosrios.ca/classes/2026-09-23-7714f2ca/clip-5.mp4" data-video="https://videos.dosrios.ca/classes/2026-09-23-7714f2ca/clip-5.mp4" data-poster="https://videos.dosrios.ca/classes/2026-09-23-7714f2ca/poster-5.jpg" data-title="Clip 5">
+          <img src="https://videos.dosrios.ca/classes/2026-09-23-7714f2ca/thumb-5.jpg" alt="" loading="lazy">
+          <span>5. Clip 5 · 1:53</span>
+        </a>
+      </li>
+  </ul>
+  <footer>Last updated: 2026-10-01 14:54:55 UTC</footer>
+  <script>
+    // Without JavaScript each thumbnail is a plain link to its video file.
+    (function () {
+      var player = document.getElementById('player');
+      var links = Array.prototype.slice.call(document.querySelectorAll('#clips a'));
+      function show(link, autoplay) {
+        player.poster = link.dataset.poster;
+        player.src = link.dataset.video;
+        document.getElementById('now').textContent = link.dataset.title;
+        document.getElementById('download').href = link.dataset.video;
+        links.forEach(function (l) { l.removeAttribute('aria-current'); });
+        link.setAttribute('aria-current', 'true');
+        if (autoplay) player.play();
+      }
+      // Choosing a thumbnail plays the clip full screen. Browsers only allow that from a tap or click, which this is.
+      // Where the page itself can go full screen, do that; an iPhone cannot, but plays a video that is not
+      // marked playsinline full screen on its own, so take the attribute off until the viewer leaves full screen.
+      function fullScreen() {
+        if (document.fullscreenEnabled && player.requestFullscreen) {
+          var p = player.requestFullscreen();
+          if (p && p.catch) p.catch(function () {});
+        } else {
+          player.removeAttribute('playsinline');
+        }
+      }
+      // On a phone the player is not on the page, so leaving full screen has to stop the clip, not leave it playing unseen.
+      var phone = window.matchMedia ? window.matchMedia('(max-width: 700px)') : null;
+      function leftFullScreen() {
+        player.setAttribute('playsinline', '');
+        if (phone && phone.matches) player.pause();
+      }
+      player.addEventListener('webkitendfullscreen', leftFullScreen);
+      document.addEventListener('fullscreenchange', function () { if (!document.fullscreenElement) leftFullScreen(); });
+      links.forEach(function (link) {
+        link.addEventListener('click', function (e) { e.preventDefault(); fullScreen(); show(link, true); });
+      });
+      player.addEventListener('ended', function () {
+        var i = links.findIndex(function (l) { return l.getAttribute('aria-current') === 'true'; });
+        if (i >= 0 && i + 1 < links.length) show(links[i + 1], true);
+      });
+    })();
+  </script>
+</body>
+</html>
